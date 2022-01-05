@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body bgcolor="#FF6347">
+<img src="pizza.png" width="250">
+ <center><div class="login">
+	<h1>Prediksi Harga Pizza</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<p> Panjang diameter pizza:<input type="text" name="diameter" placeholder="Diameter" required="required" />
+        <p> Ukuran Pizza: <br> Medium = 3, Small = 5, Large = 2, Reguler = 4, Jumbo = 1, XL = 0<input type="text" name="size" placeholder="Ukuran" required="required" />
+		<p> Mau Extra Saus?: Ya = 1, No = 0<input type="text" name="extra_sauce" placeholder="Extra Saus" required="required" />
+		<p> Mau Extra Keju?:Ya = 1, No = 0 <input type="text" name="extra_cheese" placeholder="Extra Keju" required="required" /><br><br>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Cek Harga Pizza!</button></p>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+</center>
+ </div>
+
+
+</body>
+</html>
